@@ -3,7 +3,7 @@ IMAGE_NAME="satven/test-app:latest"
 CONTAINER_NAME="test-app-container"
 docker build -t $IMAGE_NAME .
 docker run -d --name $CONTAINER_NAME -p 5000:5000 $IMAGE_NAME
-sleep 5
+sleep 10
 NUM1=5
 NUM2=6
 RESULT=$((NUM1 + NUM2))
