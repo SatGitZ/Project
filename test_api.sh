@@ -17,6 +17,12 @@ NUM1=5
 NUM2=6
 RESULT=$((NUM1 + NUM2))
 EXPECTED=$(curl -s "http://localhost:5000/add?num1=$NUM1&num2=$NUM2")
+
+echo "NUM1=$NUM1"
+echo "NUM2=$NUM2"
+echo "RESULT=$RESULT"
+echo "EXPECTED=$EXPECTED"
+
 if [ "$RESULT" = "$EXPECTED" ]; then
   echo "success"
   exit 0
