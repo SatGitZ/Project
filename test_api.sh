@@ -13,13 +13,18 @@ for i in {1..15}; do
   echo "Waiting for app... ($i)"
   sleep 2
 done
-EXPECTED="30"
-RESULT=$(curl -s "http://localhost:5000/add?num1=10&num2=20")
-
+NUM1=5
+NUM2=6
+RESULT=$((NUM1 + NUM2))
+EXPECTED=$(curl -s "http://localhost:5000/add?num1=$NUM1&num2=$NUM2")
+EXPECTED_INT=$(echo "$EXPECTED" | awk '{printf "%d", $0}')
+echo "NUM1=$NUM1"
+echo "NUM2=$NUM2"
 echo "RESULT=$RESULT"
 echo "EXPECTED=$EXPECTED"
+echo "EXPECTED_INT=$EXPECTED_INT"
 
-if [ "$RESULT" = "$EXPECTED" ]; then
+if [ "$RESULT" = "$EXPECTED_INT" ]; then
   echo "success"
   exit 0
 else
