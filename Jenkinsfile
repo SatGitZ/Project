@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         IMAGE_NAME= "satven/test-app:latest"
+        KUBECONFIG= '/var/lib/jenkins/.kube/config'
     }
     stages {
         stage('Git clone') {
